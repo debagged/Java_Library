@@ -1,4 +1,4 @@
-package com.mycompany.java_library;
+package com.mycompany.java_library.users;
 
 import java.util.Scanner;
 
@@ -46,21 +46,18 @@ public class Users {
         this.password = scan.nextLine();
     }
 
-}
+    public static class Librarian extends Users {
+        private String librarianCode;
 
-
-class Librarian extends Users {
-    private String librarianCode;
-
-
-    public void register_Librarian(){
-        register_prompt();
-        System.out.print("Enter Librarian ID: ");
-        librarianCode = scan.next();
-        
-        System.out.println("\nLibrarian Information: "+ first_name +" "+ last_name +"\n" +
-                           "Library Code: " + librarianCode);
-        
+        public void register_Librarian(){
+            register_prompt();
+            System.out.print("Enter Librarian ID: ");
+            librarianCode = scan.next();
+            
+            System.out.println("\nLibrarian Information: "+ first_name +" "+ last_name +"\n" +
+                            "Library Code: " + librarianCode);
+            
+        }
     }
 }
 
@@ -75,8 +72,9 @@ class Student extends Users{
         studentID = scan.next();
         
         System.out.println("\nLibrarian Information: " + first_name +" "+ last_name +"\n" +
-                           "Library Code: " + studentID);
+                        "Library Code: " + studentID);
         
     }
 }
+
 
