@@ -59,22 +59,23 @@ public class Users {
             
         }
     }
-}
 
 
+    public static class Student extends Users{
+        private String studentID;
 
-class Student extends Users{
-    private String studentID;
-
-    public void register_Student(){
-        register_prompt();
-        System.out.print("Enter Librarian ID: ");
-        studentID = scan.next();
-        
-        System.out.println("\nLibrarian Information: " + first_name +" "+ last_name +"\n" +
-                        "Library Code: " + studentID);
-        
+        public void register_Student(){
+            register_prompt();
+            System.out.print("Enter Librarian ID: ");
+            studentID = scan.next();
+            
+            System.out.println("\nLibrarian Information: " + first_name +" "+ last_name +"\n" +
+                            "Library Code: " + studentID);
+            
+        }
     }
+
+
 }
 
 

@@ -5,13 +5,12 @@ import java.util.*;
 
 import com.mycompany.java_library.screen_functions.*;
 import com.mycompany.java_library.users.Users;
-import com.mycompany.java_library.users.Users.Librarian;;
-
+import com.mycompany.java_library.users.Users.Librarian;
+import com.mycompany.java_library.library_function.libraryFunctions;
 
 public class Java_Library{
     static Scanner scan = new Scanner(System.in);
     static Users user = new Users();
-    static Librarian librarian = new Librarian();
 
     
     public static void main(String[] args) throws Exception{
@@ -30,9 +29,14 @@ public class Java_Library{
 
                 switch(choice){
                     case 1:
+                        Librarian librarian = new Librarian();
+
                         librarian.register_Librarian();
                         Functions.clear_screen(3000);
                         System.out.println("Hello Admin");
+
+                        libraryFunctions book = new libraryFunctions();
+                        book.addBooks();
                         break;
                     case 2:
                         Functions.clear_screen(3000);
@@ -57,3 +61,4 @@ public class Java_Library{
 
 
 
+ 
