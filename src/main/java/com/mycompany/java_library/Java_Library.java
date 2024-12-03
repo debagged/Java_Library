@@ -4,13 +4,13 @@ package com.mycompany.java_library;
 import java.util.*;
 
 import com.mycompany.java_library.screen_functions.*;
-import com.mycompany.java_library.users.Users;
-import com.mycompany.java_library.users.Users.Librarian;
+import com.mycompany.java_library.users.UserData;
+import com.mycompany.java_library.users.Admin.Librarian;
 import com.mycompany.java_library.library_function.libraryFunctions;
 
 public class Java_Library{
     static Scanner scan = new Scanner(System.in);
-    static Users user = new Users();
+    static UserData user = new UserData();
 
     
     public static void main(String[] args) throws Exception{
@@ -19,29 +19,36 @@ public class Java_Library{
         Thread.sleep(3000);
 
        while(true){ 
-            System.out.println("Select Status\n" 
+            System.out.println("Select Roles\n" 
                              + "1.Librarian\n"
                              + "2.Student");
-            System.out.print("Enter your Position: ");
+            System.out.print("Enter your Role: ");
         
             try {
-                int choice = scan.nextInt();
+                int role  = scan.nextInt();
 
-                switch(choice){
+                switch(role){
                     case 1:
-                        Librarian librarian = new Librarian();
+                        // Librarian librarian = new Librarian();
+                        // libraryFunctions book = new libraryFunctions();
 
-                        librarian.register_Librarian();
-                        Functions.clear_screen(3000);
-                        System.out.println("Hello Admin");
 
-                        libraryFunctions book = new libraryFunctions();
-                        book.addBooks();
+                        // librarian.register_Librarian();
+                        // Functions.clear_screen(3000);
+                        // System.out.println("Hello Admin");
+
+                         
+                        // book.addBooks();
+                        // book.viewBooks();
+                        user.register_prompt();
+                        user.login_prompt();
                         break;
+                        
                     case 2:
                         Functions.clear_screen(3000);
                         System.out.println("Hello Student");
                         break;
+
                     default:        
                         System.out.println("\nPlease try again!, Input is no in the option");
                         Functions.clear_screen(3000);

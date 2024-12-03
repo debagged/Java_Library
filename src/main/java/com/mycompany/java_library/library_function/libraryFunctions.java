@@ -2,6 +2,7 @@ package com.mycompany.java_library.library_function;
 import java.util.*;
 import java.io.*;
 
+
 public class libraryFunctions {
     
     static Scanner scan = new Scanner(System.in);
@@ -36,14 +37,19 @@ public class libraryFunctions {
         }   
     }
 
-    public void fileWriter(String book_title, String book_author, String book_isbn) throws IOException {
+    public void fileWriter_Books(String book_title, String book_author, String book_isbn) throws IOException {
 
         FileWriter fileWrite = new FileWriter(file, true); 
         // Use fileWriter to write to the file
         fileWrite.append(this.book_author+" | "+this.book_title+" | "+this.book_isbn+" | \n");
         fileWrite.close();
-
     }
+
+    public void writer()throws IOException{
+        FileWriter fileWriter = new FileWriter(file, true);
+        fileWriter.close();
+    }
+
 
     public void addBooks() throws Exception{ 
         fileMaker("Books");
@@ -56,10 +62,27 @@ public class libraryFunctions {
         System.out.print("Enter ISBN: ");
         this.book_isbn = scan.nextLine();
 
-        fileWriter(book_title, book_author, book_isbn);
+        fileWriter_Books(book_title, book_author, book_isbn);
     }
 
-    // View Books
+    public void viewBooks(){
+        try{
+            file = new File("Books.txt");
+            Scanner fileReader = new Scanner(file);
+            System.out.println("Books:");
+            
+            while(fileReader.hasNextLine()){
+                String data = fileReader.nextLine();
+                System.out.println(data);
+            }
+            fileReader.close();
+        
+        }catch (FileNotFoundException e){
+            System.out.println("File Not Found");
+            e.printStackTrace();
+        }
+    }
+    
 
 
 
