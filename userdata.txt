@@ -1,3 +1,0 @@
-admin1:admin123
-admin2:admin234
-admin3:adminolfu

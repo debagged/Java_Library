@@ -19,6 +19,11 @@ import com.mycompany.java_library.screen_functions.*;
                         user_ID = "",
                         user_name = "", 
                         password = "";
+
+        protected void Data(String user_name, String password){
+            this.user_name = user_name;
+            this.password = password;
+        }
         
                         
         public void register_prompt() throws IOException, InterruptedException{
@@ -40,10 +45,9 @@ import com.mycompany.java_library.screen_functions.*;
 
             saveDataToFile(user_name, password);
             
-            
         }
 
-        public void login_prompt(){
+        public void login_prompt() throws IOException{
             while(true){
                 System.out.print("Enter Username: ");
                 user_name = scan.nextLine();
@@ -51,53 +55,36 @@ import com.mycompany.java_library.screen_functions.*;
                 System.out.print("Enter Password: ");
                 password = scan.nextLine();
 
-                // String storedPassword = userDataBase.get(user_name);
 
-                // if(storedPassword != null && storedPassword.equals(password)){
-                //     System.out.println("Login Successfully");
-                //     break;
-                // }
-            
-                // else{
-                //     System.out.println("Wrong Username or Password");
-                // }
-
-                readDataFromFile(user_name, password);
-                break;
-
+                if (readDataFromFile(user_name, password)) {
+                    System.out.println("Login Successful");
+                    break; // Exit the loop on successful login
+                } else {
+                    System.out.println("Wrong Username or Password");
+                }            
             }
         }
 
         private void saveDataToFile(String user_name, String password){
             try (FileWriter fw = new FileWriter("userdata.txt", true);
                     PrintWriter pw = new PrintWriter(fw)) {
-                    for (Map.Entry<String, String> entry : userDataBase.entrySet()) {
-                        pw.println(entry.getKey() + ":" + entry.getValue());
-                    }
+                        pw.println(user_name + ":" + password);
                     } catch (IOException e) {
                 e.printStackTrace();
             }       
         }
 
-        private void readDataFromFile(String username, String password){
-            try(BufferedReader br = new BufferedReader(new FileReader("userdata.txt"))){
-                String line = br.readLine();
-                String[] parts = line.split(":");
-                username = parts[0];
-                password = parts[1];
-
-                if(username == parts[0] && password == parts[1]){
-                    System.out.println("Login Successfully");
+        private boolean readDataFromFile(String username, String password) throws IOException {
+            try (BufferedReader br = new BufferedReader(new FileReader("userdata.txt"))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] parts = line.split(":");
+                    if (parts[0].equals(username) && parts[1].equals(password)) {
+                        return true;
+                    }
                 }
-                else{
-                    System.out.println("Wrong Username or Password");
-                }
-
-            }catch (IOException err) {
-                err.printStackTrace();
+                return false; // Login failed
             }
-
-
         }
     }
 
