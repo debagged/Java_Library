@@ -1,14 +1,16 @@
-    package com.mycompany.java_library.users;
+package com.mycompany.java_library.users;
 
-    import java.util.HashMap;
-    import java.util.Scanner;
-    import java.io.*;
-    import com.mycompany.java_library.library_function.*;
-    import com.mycompany.java_library.screen_functions.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.io.*;
+import com.mycompany.java_library.library_function.*;
+import com.mycompany.java_library.screen_functions.*;
 
     public class UserData {
         static Scanner scan = new Scanner(System.in);
         static HashMap<String, String> userDataBase = new HashMap<>();
+        
         static libraryFunctions libraryFuncs = new libraryFunctions();
         static Functions screen = new Functions();
 
@@ -69,8 +71,10 @@
         private void saveDataToFile(String user_name, String password){
             try (FileWriter fw = new FileWriter("userdata.txt", true);
                     PrintWriter pw = new PrintWriter(fw)) {
-                    pw.println(user_name + ":" + password);
-            } catch (IOException e) {
+                    for (Map.Entry<String, String> entry : userDataBase.entrySet()) {
+                        pw.println(entry.getKey() + ":" + entry.getValue());
+                    }
+                    } catch (IOException e) {
                 e.printStackTrace();
             }       
         }
