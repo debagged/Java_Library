@@ -1,7 +1,5 @@
 package com.mycompany.java_library.users;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.io.*;
 import com.mycompany.java_library.library_function.*;
@@ -9,16 +7,15 @@ import com.mycompany.java_library.screen_functions.*;
 
     public class UserData {
         static Scanner scan = new Scanner(System.in);
-        static HashMap<String, String> userDataBase = new HashMap<>();
         
         static libraryFunctions libraryFuncs = new libraryFunctions();
         static Functions screen = new Functions();
 
-        protected String first_name = "",
-                        last_name = "",
-                        user_ID = "",
-                        user_name = "", 
-                        password = "";
+        protected String    first_name = "",
+                            last_name = "",
+                            user_ID = "",
+                            user_name = "", 
+                            password = "";
 
         protected void Data(String user_name, String password){
             this.user_name = user_name;
@@ -40,7 +37,6 @@ import com.mycompany.java_library.screen_functions.*;
             System.out.print("Enter Password: ");
             password = scan.nextLine();
 
-            userDataBase.put(user_name, password);
             Functions.clear_screen(200);
 
             saveDataToFile(user_name, password);

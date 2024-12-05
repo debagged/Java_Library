@@ -11,6 +11,11 @@ public class libraryFunctions {
     String book_title = "",
            book_author = "", 
            book_isbn = "";
+
+    String student_name = "",
+           student_number = "";
+
+           
         
     public void Book_Data(String book_title,
                           String book_author,
@@ -19,6 +24,11 @@ public class libraryFunctions {
             this.book_title = book_title;
             this.book_author = book_author;
             this.book_isbn = book_isbn;
+    }
+
+    public void Student_Data(String student_name, String student_number){
+        this.student_name = student_name;
+        this.student_number = student_number;
     }
 
     public void fileMaker(String name){
@@ -83,6 +93,14 @@ public class libraryFunctions {
         }
     }
     
+
+    // make borrowBooks
+    // fileMaker("Borrower")
+    //input Student Name, student number, book_title, book_isbn, book_author
+
+    
+    //make view_borrowedBooks
+    // do like 
 
 
 

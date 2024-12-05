@@ -8,10 +8,10 @@ public class Students{
         public void register_Student(){
             try {
                 register_prompt();
-                System.out.print("Enter Librarian ID: ");
+                System.out.print("Enter Student ID: ");
                 studentID = scan.next();
                 
-                System.out.println("\nLibrarian Information: " + first_name +" "+ last_name +"\n" +
+                System.out.println("\nStudent Information: " + first_name +" "+ last_name +"\n" +
                                 "Library Code: " + studentID);
                 
             } catch (Exception err) {

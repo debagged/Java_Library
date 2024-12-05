@@ -25,34 +25,22 @@ public class Java_Library{
             System.out.print("Enter your Role: ");
         
             try {
-                int role  = scan.nextInt();
+                int role = scan.nextInt();
 
                 switch(role){
-                    case 1:
-                        // Librarian librarian = new Librarian();
-                        // libraryFunctions book = new libraryFunctions();
+                    case 1 -> {
+                        // Librarian
 
+                    }
 
-                        // librarian.register_Librarian();
-                        // Functions.clear_screen(3000);
-                        // System.out.println("Hello Admin");
+                    case 2 -> {
+                        // Student
 
-                         
-                        // book.addBooks();
-                        // book.viewBooks();
-                        user.register_prompt();
-                        user.login_prompt();
-                        break;
-                        
-                    case 2:
-                        Functions.clear_screen(3000);
-                        System.out.println("Hello Student");
-                        break;
+                    }
 
-                    default:        
-                        System.out.println("\nPlease try again!, Input is no in the option");
-                        Functions.clear_screen(3000);
-                        continue;
+                    case 3 -> {
+
+                    }
                 }
                 break;
 
